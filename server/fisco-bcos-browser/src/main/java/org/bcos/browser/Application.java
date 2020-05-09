@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
  *
  */
 @Slf4j
+@ServletComponentScan(basePackages = "org.bcos.browser.filter")
 @EnableTransactionManagement
 @SpringBootApplication(exclude = {MultipartAutoConfiguration.class})
 @MapperScan("org.bcos.browser.mapper")
