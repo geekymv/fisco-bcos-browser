@@ -4,13 +4,15 @@ server:
 
 spring: 
   datasource: 
-    url: jdbc:mysql://127.0.0.1:3306/db_browser?useUnicode=true&characterEncoding=utf8
-    username: dbUsername
-    password: dbPassword
+    url: jdbc:mysql://10.0.231.6:3306/fisco_browser?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: Fisc0@bc0s
     driver-class-name: com.mysql.jdbc.Driver
   
 mybatis:  
-  mapper-locations: classpath:mapper/*.xml  
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 constant: 
   cronBlockChainInfo: 0/10 * * * * ?
@@ -21,6 +23,26 @@ constant:
   cronDeleteTxn: 0 0/10 * * * ?
   handleBlocks: 50
   keepTxnCnt: 500000
-  
+
+
+encrypt-type: # 0：普通， 1：国密
+  encrypt-type: 0
+
+group-channel-connections-config:
+  caCert: ca.crt
+  sslCert: sdk.crt
+  sslKey: sdk.key
+  all-channel-connections:
+    - group-id: 1 #group ID
+      connections-str:
+        # 若节点小于v2.3.0版本，查看配置项listen_ip:channel_listen_port
+        - 10.0.231.6:20200 # node channel_listen_ip:channel_listen_port
+        - 10.0.231.6:20201
+        - 10.0.231.6:20202
+        - 10.0.231.6:20203
+channel-service:
+  group-id: 1 # sdk实际连接的群组
+  agency-name: fisco # 机构名称
+
 logging: 
   config: classpath:log4j2.xml

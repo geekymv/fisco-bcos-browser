@@ -13,7 +13,7 @@ targetCompatibility = 1.8
 // In this section you declare where to find the dependencies of your project
 repositories {
     maven {
-        url "http://maven.aliyun.com/nexus/content/groups/public/"
+        url "https://dl.bintray.com/ethereum/maven/"
     }
     mavenLocal()
     mavenCentral()
@@ -34,7 +34,8 @@ List spring_boot =[
 	"org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE",
 	"org.springframework.boot:spring-boot-autoconfigure:1.5.9.RELEASE",
 	"org.springframework.boot:spring-boot-configuration-processor:1.5.9.RELEASE",
-	"org.springframework.boot:spring-boot-starter-log4j2:1.5.9.RELEASE"
+	"org.springframework.boot:spring-boot-starter-log4j2:1.5.9.RELEASE",
+	"org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE"
 ]
 
 List mysql = [
@@ -60,6 +61,7 @@ dependencies {
     compile "com.github.briandilley.jsonrpc4j:jsonrpc4j:1.5.1"
     compile "org.apache.commons:commons-lang3:3.6"
     compile 'com.alibaba:fastjson:1.2.60'
+	compile 'org.fisco-bcos:web3sdk:2.1.0'
     annotationProcessor 'org.projectlombok:lombok:1.18.2'
     compileOnly 'org.projectlombok:lombok:1.18.2'
 }

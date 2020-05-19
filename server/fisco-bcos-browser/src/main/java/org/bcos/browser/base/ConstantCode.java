@@ -32,4 +32,6 @@ public interface ConstantCode {
     /* system error */
     RetCode SYSTEM_ERROR = RetCode.mark(105001, "system error");
     RetCode PARAM_VAILD_FAIL = RetCode.mark(105002, "param valid fail");
+
+    String USER_ID_IS_EMPTY = "{\"code\":505001,\"msg\":\"userId不能为空\"}";
 }

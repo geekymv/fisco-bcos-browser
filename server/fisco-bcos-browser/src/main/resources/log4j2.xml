@@ -17,9 +17,11 @@
         </RollingFile>
         <Async name="asyncBrowser" bufferSize="512">
             <AppenderRef ref="fileAppender" />
+            <AppenderRef ref="console" />
         </Async>
     </Appenders>
     <Loggers>
+        <logger name="org.bcos.browser" level="DEBUG"></logger>
         <Root level="info">
             <AppenderRef ref="asyncBrowser" />
         </Root>
