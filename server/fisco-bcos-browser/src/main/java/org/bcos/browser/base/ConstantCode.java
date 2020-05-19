@@ -34,4 +34,5 @@ public interface ConstantCode {
     RetCode PARAM_VAILD_FAIL = RetCode.mark(105002, "param valid fail");
 
     String USER_ID_IS_EMPTY = "{\"code\":505001,\"msg\":\"userId不能为空\"}";
+    String ARCHIVES_ID_IS_EMPTY = "{\"code\":505001,\"msg\":\"archivesId不能为空\"}";
 }

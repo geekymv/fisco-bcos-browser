@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bcos.browser.mapper.ArchivesMapper">
+    <insert id="addArchives" parameterType="org.bcos.browser.entity.dto.Archives">
+        INSERT INTO tb_archives(
+            archives_id,
+            archives_name,
+            archives_address,
+            archives_private,
+            archives_public,
+            gmt_create,
+            gmt_modify
+        ) VALUES (
+            #{archivesId},
+            #{archivesName},
+            #{archivesAddress},
+            #{archivesPrivate},
+            #{archivesPublic},
+            now(),
+            now()
+        )
+    </insert>
+
+    <select id="getArchivesById" resultType="org.bcos.browser.entity.dto.Archives">
+        select archives_id, archives_name, archives_address, archives_private, archives_public
+        from tb_archives where archives_id = #{archivesId}
+    </select>
+
+
+</mapper>
